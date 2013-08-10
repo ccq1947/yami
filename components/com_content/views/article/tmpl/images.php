@@ -8,4 +8,4 @@ defined('_JEXEC') or die;
     <div class="EpidemicDetailedContant">
 			<?php echo $this->item->introtext; ?>
 		</div>
-    </div>    </div>   
+    </div>

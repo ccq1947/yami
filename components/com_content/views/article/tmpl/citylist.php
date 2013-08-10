@@ -16,4 +16,3 @@ defined('_JEXEC') or die;
         <p class="TownSuggest_content"><?php echo $this->cityContent->info ?></p>
 	</div>
  </div>
- </div>
