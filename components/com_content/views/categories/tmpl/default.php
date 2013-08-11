@@ -19,7 +19,7 @@ JHtml::addIncludePath(JPATH_COMPONENT.'/helpers');
 	<?php echo $this->escape($this->params->get('page_heading')); ?>
 </h1>
 <?php endif; ?>
-<?php if ($this->params->get('show_base_description')) : ?>
+<!-- <?php if ($this->params->get('show_base_description')) : ?>
 	<?php 	//If there is a description in the menu parameters use that; ?>
 		<?php if($this->params->get('categories_description')) : ?>
 			<?php echo  JHtml::_('content.prepare', $this->params->get('categories_description'), '', 'com_content.categories'); ?>
@@ -31,7 +31,7 @@ JHtml::addIncludePath(JPATH_COMPONENT.'/helpers');
 				</div>
 			<?php  endif; ?>
 		<?php  endif; ?>
-	<?php endif; ?>
+	<?php endif; ?>  -->
 
 <?php
 	echo $this->loadTemplate('items');
@@ -128,4 +128,4 @@ require_once('zuixinzhanhuihuodong.php');
 ?>
   
 </div>
-</div>
+

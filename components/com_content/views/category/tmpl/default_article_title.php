@@ -40,5 +40,4 @@ $db = JFactory::getDbo();
 		<?php endforeach; ?>
       </ul>
     </div>
-    </div>
 <?php endif; ?>

@@ -265,34 +265,36 @@ class fieldsattachHelper
         function uploadFile($file, $articleid, $fieldsid,  $fieldsvalueid,  $path = null)
         {
             if(!empty($_FILES[$file]['tmp_name'])){
-            $SafeFile = $_FILES[$file]['name'];
+            // $SafeFile = $_FILES[$file]['name'];
 
-            $SafeFile = str_replace("#", "No.", $SafeFile);
-            $SafeFile = str_replace("$", "Dollar", $SafeFile);
-            $SafeFile = str_replace("%", "Percent", $SafeFile);
-            $SafeFile = str_replace("^", "", $SafeFile);
-            $SafeFile = str_replace("&", "and", $SafeFile);
-            $SafeFile = str_replace("*", "", $SafeFile);
-            $SafeFile = str_replace("?", "", $SafeFile);
+            // $SafeFile = str_replace("#", "No.", $SafeFile);
+            // $SafeFile = str_replace("$", "Dollar", $SafeFile);
+            // $SafeFile = str_replace("%", "Percent", $SafeFile);
+            // $SafeFile = str_replace("^", "", $SafeFile);
+            // $SafeFile = str_replace("&", "and", $SafeFile);
+            // $SafeFile = str_replace("*", "", $SafeFile);
+            // $SafeFile = str_replace("?", "", $SafeFile);
 
             // JError::raiseWarning( 100, $file. " NAMETMP:".$SafeFile." ID:: ". $articleid. " ->  fieldsid ".$fieldsid ." PATH:".$path  );
-            //JError::raiseWarning( 100,   $path .DS. $articleid .DS.  $_FILES[$file]["name"] );
-             
-            if(!JFile::upload($_FILES[$file]['tmp_name'] , $path .DS. $articleid .DS.  $_FILES[$file]["name"]))
+            // JError::raiseWarning( 100,   $path .DS. $articleid .DS.  $_FILES[$file]["name"] );
+            // if(!JFile::upload($_FILES[$file]['tmp_name'] , $path .DS. $articleid .DS.   mb_convert_encoding($_FILES[$file]["name"], "gbk", "UTF-8")))
+            if(!JFile::upload($_FILES[$file]['tmp_name'] , $path  .DS.   mb_convert_encoding($_FILES[$file]["name"], "UTF-8", "gbk")))
             {
                 JError::raiseWarning( 100,  JTEXT::_("Uploda image Error")   );
             }else
             {
                 $app = JFactory::getApplication();
                 $app->enqueueMessage( JTEXT::_("Uploda image OK")  );
-                $nombreficherofinal = $_FILES[$file]["name"];
-                if (file_exists( $path .DS. $articleid .DS. $nombreficherofinal))
+                $nombreficherofinal = mb_convert_encoding($_FILES[$file]["name"], "UTF-8", "gbk");
+                // if (file_exists( $path .DS. $articleid .DS. $nombreficherofinal))
+                if (file_exists( $path .DS. $nombreficherofinal))
                 {
 
                     //$nombreficherofinal = $fieldsid."_".$nombreficherofinal;
                     $app->enqueueMessage( JTEXT::_("Name image changed " ). $nombreficherofinal  );
                     //JError::raiseWarning( 100, $_FILES[$file]["name"]. " ". JTEXT::_("already exists. "). " -> Name changed ".$nombreficherofinal   );
-                    JFile::move($path .DS. $articleid .DS.$_FILES[$file]["name"], $path .DS. $articleid .DS.$nombreficherofinal);
+                    // JFile::move($path .DS. $articleid .DS. mb_convert_encoding($_FILES[$file]["name"], "UTF-8", "gbk"), $path .DS. $articleid .DS.$nombreficherofinal);
+                    JFile::move($path.DS. $nombreficherofinal, $path  .DS.$nombreficherofinal);
                 }
                 //UPDATE
                 $db	= & JFactory::getDBO();

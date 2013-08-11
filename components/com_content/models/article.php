@@ -386,5 +386,21 @@ class ContentModelArticle extends JModelItem
 			}
 			return false;
 	}
-
+	/*
+	 * @purpose 获取PDF下载
+	 */
+	public function getFile(){
+			$article_id		= JRequest::getVar('id');
+            if(strpos($article_id,':') !== false) $article_id	=array_shift(explode(':',$article_id));
+			$db = $this->getDbo();
+			 $db->getQuery(true);
+			$query = "SELECT fv.value AS value,f.title AS title from #__fieldsattach_values AS fv LEFT JOIN yami_fieldsattach AS f ON f.id = fv.fieldsid left join #__fieldsattach_groups as fg on fg.id=f.groupid WHERE fv.articleid = $article_id AND fg.title = '下载'";
+			$db->setQuery($query);
+			$result = $db->loadObject();
+			if($result){
+			$type = array_shift(explode('|',$result->value));
+			return $type;
+			}
+			return false;
+	}
 }

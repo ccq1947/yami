@@ -60,4 +60,4 @@ JHtml::addIncludePath(JPATH_COMPONENT.'/helpers');
 	?>
 	</div>
 </div>
-</div>
+

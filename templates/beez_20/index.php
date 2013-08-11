@@ -132,9 +132,8 @@ $userId = $user->get('id');
 	endif; ?>
 
 	<jdoc:include type="component" />
-
 <div class="conbottom"><img width="962" height="8" src="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/images//conzd2.jpg"></div>
-
+</div>
 <div class="foot">
   <p><a href="#">关于我们</a>｜<a href="Contact1.html">联络我们</a>｜<a href="#">法律信息</a>｜<a href="#">常见问题</a>｜<a href="#">隐私条例</a></p>
   <p>©2013蕥觅 版权所有</p>
