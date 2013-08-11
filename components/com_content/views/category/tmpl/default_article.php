@@ -39,5 +39,4 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 		<?php endforeach; ?>
       </ul>
     </div>
-    </div>
 <?php endif; ?>

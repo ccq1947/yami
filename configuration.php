@@ -12,9 +12,9 @@ class JConfig {
 	public $debug = '0';
 	public $debug_lang = '0';
 	public $dbtype = 'mysql';
-	public $host = 'localhost';
+	public $host = '42.121.122.201';
 	public $user = 'root';
-	public $password = '';
+	public $password = 'a123456b';
 	public $db = 'joomla';
 	public $dbprefix = 'yami_';
 	public $live_site = '';
@@ -39,7 +39,7 @@ class JConfig {
 	public $smtphost = 'localhost';
 	public $smtpsecure = 'none';
 	public $smtpport = '25';
-	public $caching = '0';
+	public $caching = '1';
 	public $cache_handler = 'file';
 	public $cachetime = '15';
 	public $MetaDesc = '';

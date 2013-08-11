@@ -33,6 +33,6 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
         <div class="clearfix"></div>
       </ul>
 	  <?php echo $this->brand; ?>
-    </div>
+</div>
 
 <?php endif; ?>

@@ -35,6 +35,8 @@ class ContentViewArticle extends JViewLegacy
 		$this->print	= JRequest::getBool('print');
 		$this->state	= $this->get('State');
 		$this->user		= $user;
+		$this->file		= $this->get('File');
+        // var_dump($this->file);
 
 		// Check for errors.
 		if (count($errors = $this->get('Errors'))) {
