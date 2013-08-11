@@ -35,16 +35,17 @@ $db = JFactory::getDbo();
 
 	<?php foreach ($this->items as $i => $activity) : 
 				$images = json_decode($activity->images);
+                $link = JRoute::_('index.php?option=com_content&view=article&id='.$activity->id.'&catid='.$this->category->id);
 	?>
     	<li>
 			<p class="pic">
-				<a href="<?php echo JRoute::_('index.php?option=com_content&view=category&id='.$activity->id);?>">
+				<a href="<?php echo $link;?>">
 					<img src="<?php echo htmlspecialchars($images->image_intro) ?>" width="110" height="110" />
 				</a>
 			</p>
-			<h3><a href="<?php echo JRoute::_('index.php?option=com_content&view=category&id='.$activity->id);?>"><?php echo $activity->title;?></a></h3>
+			<h3><a href="<?php echo $link;?>"><?php echo $activity->title;?></a></h3>
 			<div class="Txt"><?php echo $activity->introtext;?></div>
-			<div class="More"><a href="<?php echo JRoute::_('index.php?option=com_content&view=category&id='.$activity->id);?>">更多</a></div><p class="Date"><?php echo $activity->created;?></p>
+			<div class="More"><a href="<?php echo $link;?>">更多</a></div><p class="Date"><?php echo $activity->created;?></p>
     	</li>
 		<?php endforeach; ?>
       </ul>
